@@ -6,11 +6,10 @@ on:
       - main
     tags:
       - 'v*'
-  workflow_dispatch: # Pozwala na ręczne uruchomienie budowania z zakładki Actions
+  workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io
-  # Nazwa repozytorium w małych literach (np. ghcr.io/twoj-username/open-webui-slim)
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
@@ -32,6 +31,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
+          # This token is automatically grabbed by GitHub; no setup needed!
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Extract metadata (tags, labels) for Docker
@@ -43,7 +43,6 @@ jobs:
             type=ref,event=branch
             type=semver,pattern={{version}}
             type=sha,format=short
-            # Jeśli pushujesz do main, automatycznie doda tag :latest
             type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
 
       - name: Build and push Docker image
@@ -52,11 +51,10 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ id.meta.outputs.tags }}
-          labels: ${{ id.meta.outputs.labels }}
-          # Przekazanie hash builda do Twojego Dockerfile
+          # FIXED: Changed id.meta to steps.meta
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             BUILD_HASH=${{ github.sha }}
-          # Wykorzystanie cache GitHub Actions, aby drastycznie przyspieszyć kolejne buildy
           cache-from: type=gha
           cache-to: type=gha,mode=max
