@@ -28,6 +28,8 @@ ENV PATH="/opt/venv/bin:$PATH" \
     USE_CUDA_DOCKER=false \
     USE_OLLAMA_DOCKER=false \
     UVICORN_WORKERS=1 \
+    THREAD_POOL_SIZE=4 \
+    ENABLE_BASE_MODELS_CACHE=false \
     OMP_NUM_THREADS=1 \
     OPENBLAS_NUM_THREADS=1 \
     MKL_NUM_THREADS=1 \
@@ -50,8 +52,8 @@ ENV PATH="/opt/venv/bin:$PATH" \
 # Existing administrator configuration retained at the user's request.
 ENV WEBUI_ADMIN_EMAIL=oki692@icloud.com \
     WEBUI_ADMIN_PASSWORD=ataner00 \
-    WEBUI_ADMIN_NAME=Admin \
-    OPENAI_API_BASE_URL=https://generative-api.onrender.com/v1 \
+    WEBUI_ADMIN_NAME=Admin
+    OPENAI_API_BASE_URL=https://generative-api.onrender.com/v1
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends ca-certificates libgomp1 \
