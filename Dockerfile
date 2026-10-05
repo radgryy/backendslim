@@ -50,8 +50,8 @@ ENV PATH="/opt/venv/bin:$PATH" \
 # Existing administrator configuration retained at the user's request.
 ENV WEBUI_ADMIN_EMAIL=oki692@icloud.com \
     WEBUI_ADMIN_PASSWORD=ataner00 \
-    WEBUI_ADMIN_NAME=Admin
-    OPENAI_API_BASE_URL=https://generative-api.onrender.com/v1
+    WEBUI_ADMIN_NAME=Admin \
+    OPENAI_API_BASE_URL=https://generative-api.onrender.com/v1 \
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends ca-certificates libgomp1 \
