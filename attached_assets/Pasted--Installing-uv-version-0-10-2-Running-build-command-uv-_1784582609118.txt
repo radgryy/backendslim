@@ -1,0 +1,98 @@
+==> Installing uv version 0.10.2...
+==> Running build command 'uv sync --frozen && uv cache prune --ci'...
+Using CPython 3.11.2 interpreter at: /usr/bin/python3
+Removed virtual environment at: .venv
+Creating virtual environment at: .venv
+   Building open-webui @ file:///opt/render/project/src
+Downloading sympy (5.9MiB)
+Downloading psycopg2-binary (2.9MiB)
+Downloading pydantic-core (1.9MiB)
+Downloading kubernetes (1.8MiB)
+Downloading grpcio (5.6MiB)
+Downloading transformers (9.2MiB)
+Downloading sqlalchemy (3.1MiB)
+Downloading tokenizers (2.9MiB)
+Downloading brotli (2.8MiB)
+Downloading shapely (2.4MiB)
+Downloading opencv-python (60.1MiB)
+Downloading botocore (12.7MiB)
+Downloading numpy (17.4MiB)
+Downloading nvidia-nccl-cu12 (179.9MiB)
+Downloading nvidia-cufft-cu12 (201.7MiB)
+Downloading nvidia-cusparse-cu12 (197.8MiB)
+Downloading nvidia-cuda-nvrtc-cu12 (23.5MiB)
+Downloading nvidia-cuda-cupti-cu12 (13.2MiB)
+Downloading onnxruntime (12.7MiB)
+Downloading pillow (4.4MiB)
+Downloading scikit-learn (12.9MiB)
+Downloading nvidia-nvjitlink-cu12 (20.1MiB)
+Downloading moto (4.4MiB)
+Downloading nvidia-cublas-cu12 (346.6MiB)
+Downloading rapidfuzz (3.0MiB)
+Downloading primp (3.1MiB)
+Downloading nvidia-cudnn-cu12 (634.0MiB)
+Downloading playwright (42.1MiB)
+Downloading nvidia-cusolver-cu12 (122.0MiB)
+Downloading uvloop (3.8MiB)
+Downloading opencv-python-headless (47.7MiB)
+Downloading milvus-lite (43.1MiB)
+Downloading scipy (38.7MiB)
+Downloading zstandard (5.2MiB)
+Downloading nvidia-curand-cu12 (53.7MiB)
+Downloading fonttools (4.7MiB)
+Downloading chroma-hnswlib (2.3MiB)
+Downloading langchain-community (2.4MiB)
+Downloading pandas (12.5MiB)
+Downloading cryptography (4.0MiB)
+Downloading lxml (4.8MiB)
+Downloading av (32.8MiB)
+Downloading google-api-python-client (12.2MiB)
+Downloading oracledb (2.6MiB)
+Downloading ctranslate2 (36.8MiB)
+Downloading pyarrow (40.1MiB)
+Downloading rapidocr-onnxruntime (14.2MiB)
+Downloading tencentcloud-sdk-python (11.6MiB)
+Downloading triton (199.8MiB)
+Downloading torch (864.5MiB)
+  × Failed to build `open-webui @ file:///opt/render/project/src`
+  ├─▶ The build backend returned an error
+  ╰─▶ Call to `hatchling.build.build_editable` failed (exit status: 1)
+      [stderr]
+      Traceback (most recent call last):
+        File "<string>", line 11, in <module>
+        File
+      "/opt/render/.cache/.python-uv/cache/builds-v0/.tmpXj8EjS/lib/python3.11/site-packages/hatchling/build.py",
+      line 83, in build_editable
+          return os.path.basename(next(builder.build(directory=wheel_directory,
+      versions=["editable"])))
+      
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File
+      "/opt/render/.cache/.python-uv/cache/builds-v0/.tmpXj8EjS/lib/python3.11/site-packages/hatchling/builders/plugin/interface.py",
+      line 92, in build
+          self.metadata.validate_fields()
+        File
+      "/opt/render/.cache/.python-uv/cache/builds-v0/.tmpXj8EjS/lib/python3.11/site-packages/hatchling/metadata/core.py",
+      line 265, in validate_fields
+          _ = self.version
+              ^^^^^^^^^^^^
+        File
+      "/opt/render/.cache/.python-uv/cache/builds-v0/.tmpXj8EjS/lib/python3.11/site-packages/hatchling/metadata/core.py",
+      line 149, in version
+          self._version = self._get_version()
+                          ^^^^^^^^^^^^^^^^^^^
+        File
+      "/opt/render/.cache/.python-uv/cache/builds-v0/.tmpXj8EjS/lib/python3.11/site-packages/hatchling/metadata/core.py",
+      line 248, in _get_version
+          version = self.hatch.version.cached
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+        File
+      "/opt/render/.cache/.python-uv/cache/builds-v0/.tmpXj8EjS/lib/python3.11/site-packages/hatchling/metadata/core.py",
+      line 1531, in cached
+          raise type(e)(message) from None
+      OSError: Error getting the version from source `regex`: file does not
+      exist: package.json
+      hint: This usually indicates a problem with the package or the build
+      environment.
+==> Build failed 😞
+==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys

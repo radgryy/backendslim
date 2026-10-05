@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: open-webui
+    runtime: python
+    buildCommand: pip install -r backend/requirements.txt && pip install -e .
+    startCommand: cd backend && bash start.sh
+    healthCheckPath: /api/health
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: "10000"
